@@ -34,8 +34,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 """
 
 """
+Modifications by Ralph Haugerud
 5 December 2013
-Modified by Ralph Haugerud
 Changes:
 *   do not import PIL or the Image module. Picture function commented out
 *   don't set paragraph justification
@@ -44,6 +44,8 @@ Changes:
 *   add set_XMLspace function
 *   add a richer set of character styles to paragraph function
 *   near end of paragraph function, add check for leading or trailing space; if present, set xml:space="preserve"
+30 October 2017
+* changed path to MSWordDMUtemplate directory
 """
 
 """
@@ -88,7 +90,7 @@ log = logging.getLogger(__name__)
 # developer or 'site-packages/docx-template' if you have installed docx
 template_dir = join(os.path.dirname(__file__),'docx-template') # installed
 if not os.path.isdir(template_dir):
-    template_dir = join(os.path.dirname(__file__),'MSWordDMUtemplate') # dev
+    template_dir = join(os.path.dirname(__file__),'../Resources/MSWordDMUtemplate') # dev
 
 # All Word prefixes / namespace matches used in document.xml & core.xml.
 # LXML doesn't actually use prefixes (just the real namespace) , but these

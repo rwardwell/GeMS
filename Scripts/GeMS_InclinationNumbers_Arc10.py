@@ -1,7 +1,7 @@
 import arcpy, os.path, sys, math, shutil
 from GeMS_utilityFunctions import *
 
-versionString = 'GeMS_InclinationNumbers_Arc10.py, version of 2 September 2017'
+versionString = 'GeMS_InclinationNumbers_Arc10.py, version of 30 October 2017'
 
 debug1 = False
 OPLName = 'OrientationPointLabels'
@@ -108,7 +108,7 @@ def dipNumbers(gdb,mapScaleDenominator):
 
     #make copy of .lyr file
     newLyr = os.path.dirname(gdb)+'/NewOrientationPointLabels.lyr'
-    shutil.copy(os.path.dirname(sys.argv[0])+'/OrientationPointLabels.lyr',newLyr)
+    shutil.copy(os.path.dirname(sys.argv[0])+'/../Resources/OrientationPointLabels.lyr',newLyr)
     OPLyr = arcpy.mapping.Layer(newLyr)
     ## reset data source
     addMsgAndPrint('   gdb = '+gdb)

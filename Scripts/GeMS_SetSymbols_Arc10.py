@@ -13,7 +13,7 @@ MySymbolDict = {}
 
 unrecognizedTypes = []
 
-dictionaryFile = os.path.dirname(sys.argv[0])+'/Type-FgdcSymbol.txt'
+dictionaryFile = os.path.dirname(sys.argv[0])+'/../Resources/Type-FgdcSymbol.txt'
 
 debug1 = True
 

@@ -13,6 +13,7 @@
 # 19 Dec 2016: Added GeoMaterials table, domains
 # 8 March 2017: Added  ExistenceConfidence, IdentityConfidence, ScientificConfidence domains, definitions, and definitionsource
 # 17 March 2017  Added optional table MiscellaneousMapInformation
+# 30 Oct 2017  Moved CartoRepsAZGS and GeMS_lib.gdb to ../Resources
 
 import arcpy, sys, os, os.path
 from GeMS_Definition import tableDict, GeoMaterialConfidenceValues, DefaultExIDConfidenceValues
@@ -116,7 +117,7 @@ def addTracking(tfc):
 
 
 def cartoRepsExistAndLayer(fc):
-    crPath = os.path.join(os.path.dirname(sys.argv[0]),'CartoRepsAZGS')
+    crPath = os.path.join(os.path.dirname(sys.argv[0]),'../Resources/CartoRepsAZGS')
     hasReps = False
     repLyr = ''
     for repFc in 'ContactsAndFaults','GeologicLines','OrientationPoints':
@@ -238,7 +239,7 @@ def main(thisDB,coordSystem,nCrossSections):
     ### GeoMaterials
     addMsgAndPrint('  Setting up GeoMaterials table and domains...')
     #  Copy GeoMaterials table
-    arcpy.Copy_management(os.path.dirname(sys.argv[0])+'/GeMS_lib.gdb/GeoMaterialDict', thisDB+'/GeoMaterialDict')
+    arcpy.Copy_management(os.path.dirname(sys.argv[0])+'/../Resources/GeMS_lib.gdb/GeoMaterialDict', thisDB+'/GeoMaterialDict')
     #   make GeoMaterials domain
     arcpy.TableToDomain_management(thisDB+'/GeoMaterialDict','GeoMaterial','IndentedName',thisDB,'GeoMaterials')
     #   attach it to DMU field GeoMaterial
